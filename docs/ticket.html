@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Ticket</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ff5e79, #ffbdc9);
+      color: #fff;
+      text-align: center;
+    }
+    .ticket {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      color: #000;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      text-align: left;
+      position: relative;
+    }
+    .ticket h2 {
+      margin: 0 0 10px;
+      color: #ff5e79;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ticket h2::before, .ticket h2::after {
+      content: "💖";
+    }
+    .ticket p {
+      margin: 5px 0;
+      font-size: 1.1rem;
+    }
+    .ticket-footer {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #ff3d5e;
+    }
+  </style>
+</head>
+<body>
+  <div class="ticket">
+    <h2>Your Ticket</h2>
+    <p><strong>Show:</strong> Valentine's Day with Ganesh and Sneha</p>
+    <p><strong>Venue:</strong> SVCET Open Auditorium</p>
+    <p><strong>Name:</strong> <span id="ticketName"></span></p>
+    <p><strong>Email:</strong> <span id="ticketEmail"></span></p>
+    <p><strong>Price:</strong> <span id="ticketPrice"></span></p>
+    <div class="ticket-footer">Enjoy the show! 💘</div>
+  </div>
+
+  <script>
+    // Parse URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get("name");
+    const email = urlParams.get("email");
+    const price = urlParams.get("price");
+
+    // Display ticket information
+    document.getElementById("ticketName").textContent = name;
+    document.getElementById("ticketEmail").textContent = email;
+    document.getElementById("ticketPrice").textContent = price;
+  </script>
+</body>
+</html>
